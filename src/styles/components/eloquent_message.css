@@ -1,0 +1,51 @@
+.ecc-message {
+    display: flex;
+    max-width: 70%;
+    transition: all 0.2s ease-in-out;
+}
+
+.ecc-message-container {
+    transition: all 0.2s ease-in-out;
+    display: flex;
+}
+
+.ecc-message-container:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+.ecc-message-logo-bubble {
+    transition: all 0.2s ease-in-out;
+    height: fit-content;
+    background-color: var(--ecc-bg);
+    border-radius: 100%;
+    padding: 6px 8px;
+    margin-right: 0.5rem;
+    align-self: flex-end;
+    box-shadow: 0px 0px 8px var(--ecc-shadow);
+}
+.ecc-message--assistant {
+    justify-content: flex-start;
+}
+.ecc-message--user {
+    justify-content: flex-end;
+}
+.ecc-bubble {
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    background-color: var(--ecc-primary);
+    color: var(--ecc-text-user);
+    font-weight: 500;
+    box-shadow: 0px 0px 8px var(--ecc-shadow);
+    word-break: break-word;
+}
+.ecc-message--assistant .ecc-bubble {
+    background-color: var(--ecc-bg);
+    color: var(--ecc-text-bot);
+}
+
+.ecc-message--user .ecc-bubble {
+    background-color: var(--ecc-primary);
+    color: var(--ecc-text-user);
+}

@@ -1,0 +1,64 @@
+.ecc-input-wrapper {
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.ecc-input {
+    flex: 1;
+    transition: all 0.2s ease-in-out;
+    border-radius: 999px;
+    border: 1px solid var(--ecc-border);
+    background: var(--ecc-bg-secondary);
+    color: var(--ecc-text-bot);
+    padding: 0.45rem 0.9rem;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.ecc-input::placeholder {
+    color: #6b7280;
+}
+
+.ecc-input:focus {
+    transition: all 0.2s ease-in-out;
+    border-color: var(--ecc-primary);
+    box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.45);
+}
+
+.ecc-input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.ecc-send-button {
+    transition: all 0.2s ease-in-out;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 999px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: var(--ecc-primary);
+    color: var(--ecc-text-user);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.5s ease;
+    outline: none;
+}
+
+.ecc-send-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 16px var(--ecc-shadow);
+}
+
+.ecc-send-button:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.ecc-send-button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}

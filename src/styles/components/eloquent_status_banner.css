@@ -1,0 +1,30 @@
+.ecc-status-banner {
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.75rem;
+    margin: 0.5rem 0;
+    background: var(--ecc-bg);
+    border: 1px solid var(--ecc-border);
+    box-shadow: 0px 0px 8px var(--ecc-shadow);
+    margin-top: calc(100% - 0.75rem);
+}
+
+.ecc-status-banner__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    font-size: 0.8rem;
+}
+
+.ecc-status-banner__title {
+    font-weight: 600;
+    color: var(--ecc-text-bot);
+}
+
+.ecc-status-banner__description {
+    color: var(--ecc-text-muted);
+    font-size: 0.75rem;
+}

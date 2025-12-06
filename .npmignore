@@ -1,0 +1,16 @@
+node_modules
+npm-debug.log
+.git
+.vscode
+.idea
+
+src/
+example/
+tsconfig.json
+tsup.config.ts
+*.tgz
+
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

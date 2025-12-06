@@ -1,0 +1,42 @@
+{
+  "name": "@crdzcode/eloquent-chit-chat",
+  "version": "1.0.40",
+  "description": "",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rmdir /S /Q dist && del /Q *.tgz",
+    "release": "npm run clean && npm run build && npm pack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Crdzcode/eloquent-chit-chat.git"
+  },
+  "keywords": [],
+  "author": "Matheus Cardoso",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Crdzcode/eloquent-chit-chat/issues"
+  },
+  "homepage": "https://github.com/Crdzcode/eloquent-chit-chat#readme",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "dependencies": {
+    "openai": "^6.10.0"
+  },
+  "peerDependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
+  }
+}

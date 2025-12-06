@@ -1,0 +1,38 @@
+:root {
+  --ecc-light-bg: #dfdfdf;
+  --ecc-light-bg-secondary: #e1e1e1;
+  --ecc-light-surface: #ffffff;
+  --ecc-light-surface-alt: #f8f8fa;
+
+  --ecc-light-text-bot: #18181b;
+  --ecc-light-text-user: #e1e1e1;
+  --ecc-light-text-muted: #52525b;
+
+  --ecc-light-border: #c5c5c5;
+
+  --ecc-light-shadow: rgb(14 14 14 / 25%);
+
+  --ecc-primary: #8944ff; 
+  --ecc-primary-hover: #6d2ed8;
+
+  --ecc-light-online: #22c55e;
+  --ecc-light-maintenance: #facc15;
+  --ecc-light-offline: #ef4444;
+
+  --ecc-dark-bg: #1E1E1E;
+  --ecc-dark-bg-secondary: #232323;
+  --ecc-dark-surface: #17171c;
+  --ecc-dark-surface-alt: #1f1f25;
+
+  --ecc-dark-text-bot: #f4f4f5;
+  --ecc-dark-text-user: #f4f4f5;
+  --ecc-dark-text-muted: #a1a1aa;
+
+  --ecc-dark-border: var(--ecc-dark-bg);
+
+  --ecc-dark-shadow: rgb(14 14 14 / 55%);
+
+  --ecc-dark-online: #22c55e;
+  --ecc-dark-maintenance: #facc15;
+  --ecc-dark-offline: #ef4444;
+}

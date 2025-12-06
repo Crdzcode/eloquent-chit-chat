@@ -1,0 +1,16 @@
+.ecc-toggle {
+    transition: all 0.2s ease-in-out;
+    border-radius: 9999px;
+    padding: 0.5rem;
+    padding-top: 0.75rem;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: var(--ecc-bg);
+    align-self: flex-end;
+}
+
+.ecc-toggle:hover {
+    opacity: 0.9;
+    scale: 1.05;
+}
