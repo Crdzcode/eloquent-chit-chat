@@ -48,7 +48,7 @@ const EloquentChatBoxComponent: React.FC<EloquentChatBoxProps> = ({
     if (el) {
       el.scrollTop = el.scrollHeight;
     }
-  }, [messages]);
+  }, [messages, status]);
 
   // Memoize message list rendering to prevent re-creating on every parent render
   // Only recalculates when messages array changes
