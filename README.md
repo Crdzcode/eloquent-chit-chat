@@ -3,6 +3,29 @@ A lightweight, embeddable chat widget designed for modern web applications. Eloq
 
 ---
 
+## Live Demo
+
+A live demonstration of the Eloquent Chit Chat widget is available for interactive testing and evaluation.
+
+The demo environment showcases:
+
+- The fully embeddable chat widget running inside a real web application
+- Support for both light and dark themes
+- LLM integration flow
+- Status indicators, animations, and overall user experience
+
+You can access the live demo at:
+
+https://eloquent-chit-chat-integration.vercel.app/
+
+This demo can be used as a reference implementation to understand how the widget behaves in practice and how it can be integrated into other frontend applications.
+
+The repository for the integration project can be accessed at:
+
+https://github.com/Crdzcode/eloquent-chit-chat-integration
+
+---
+
 ## Features
 
 ### Core Widget Features
@@ -107,6 +130,9 @@ A typical `llmClient` implementation may integrate with:
 For development and testing, you can use the included backend example hosted on Render.
 
 This backend was intentionally developed to be simple, and to have a secure integration with OpenAI's API, without exposing the API Key on the Front-end
+
+GIT Repository: 
+https://github.com/Crdzcode/eloquent-chit-chat-express
 
 Backend URL:  
 https://eloquent-chit-chat-express.onrender.com
