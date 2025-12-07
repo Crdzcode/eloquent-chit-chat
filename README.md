@@ -26,6 +26,26 @@ https://github.com/Crdzcode/eloquent-chit-chat-integration
 
 ---
 
+## About the Build System (tsup)
+
+This library uses tsup as its bundler. tsup is a fast, zero-config build tool powered by esbuild, designed specifically for packaging TypeScript and React component libraries. It outputs ESM, CJS, and type definitions, ensuring compatibility with various project setups.
+
+### Key reasons for choosing tsup:
+
+- Very fast builds due to esbuild
+
+- Minimal configuration required
+
+- Automatic generation of .d.ts type definitions
+
+- Ideal for reusable component libraries published to npm
+
+- Externalizes peer dependencies such as React, reducing bundle size
+
+This setup keeps the package lightweight, maintainable, and ready for production distribution.
+
+---
+
 ## Features
 
 ### Core Widget Features
@@ -262,5 +282,40 @@ Clean, build and pack the distribution for testing:
 ```bash
 npm run release
 ```
+---
 
-Install the generated `.tgz` in another project to test integration.
+## Installing the Library Using the .tgz Package
+
+If you want to test the widget locally before publishing to npm, you can install the .tgz package produced by npm pack.
+
+### Step 1: Build and pack the library
+
+Run:
+`npm run release`
+
+This will clean the output directory, build the library using tsup, and generate a file similar to:
+crdzcode-eloquent-chit-chat-1.0.0.tgz
+
+### Step 2: Install the .tgz file in a different project
+
+From your test project, install the file using a relative or absolute path:
+
+`npm install ./path-to-library/crdzcode-eloquent-chit-chat-1.0.0.tgz`
+
+Or:
+
+`npm install C:/Users/your-user/path/crdzcode-eloquent-chit-chat-1.0.0.tgz`
+
+### Step 3: Import and use the widget
+
+You can now use the component normally:
+
+```typescript
+import { EloquentChitChat } from '@crdzcode/eloquent-chit-chat';
+
+function App() {
+return <EloquentChitChat llmClient={llmClient} />;
+}
+```
+
+This workflow allows you to fully test the widget locally without publishing it to npm. It is the recommended development approach.
