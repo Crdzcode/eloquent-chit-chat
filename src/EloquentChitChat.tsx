@@ -9,7 +9,6 @@ export type EloquentChitChatProps = {
   title?: string;
   initialMessages?: ChatMessage[];
   llmClient: (params: { messages: ChatMessage[] }) => Promise<string>;
-  messages?: ChatMessage[];
   status?: ServiceStatus;
   theme?: 'light' | 'dark';
   position?: 'bottom-right' | 'bottom-left';
