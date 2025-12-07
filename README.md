@@ -264,10 +264,3 @@ npm run release
 ```
 
 Install the generated `.tgz` in another project to test integration.
-
----
-
-## License
-
-This project is licensed under the MIT License.
-
