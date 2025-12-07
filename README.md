@@ -164,7 +164,7 @@ This avoids hard‑coding endpoints and allows your frontend to switch easily be
 
 Below is a complete example of an `llmClient` using the Express backend:
 
-```
+```typescript
 import type { ChatMessage } from '@crdzcode/eloquent-chit-chat';
 
 const API_BASE_URL =
