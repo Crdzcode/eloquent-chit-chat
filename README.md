@@ -48,24 +48,31 @@ If you published under a different registry scope, ensure your `.npmrc` is confi
 import { EloquentChitChat } from "@crdzcode/eloquent-chit-chat";
 
 function App() {
-  const llmClient = async ({ messages }) => {
-    const response = await fetch("https://your-express-backend/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages })
-    });
-    const data = await response.json();
-    return data.reply;
-  };
+    const llmClient = async ({ messages }) => {
+        const response = await fetch("https://your-express-backend/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages })
+        });
+        const data = await response.json();
+        return data.reply;
+    };
 
-  return (
-    <EloquentChitChat
-      title="Eloquent Assistant"
-      llmClient={llmClient}
-      theme="dark"
-      position="bottom-right"
-    />
-  );
+    return (
+        <EloquentChitChat
+        title="Eloquent Assistant"
+        llmClient={llmClient}
+        initialMessages={[
+            {
+                id: 'welcome',
+                role: 'assistant',
+                content: 'Hello! How can I assist you today?',
+            },
+        ]}
+        theme="dark"
+        position="bottom-right"
+        />
+    );
 }
 
 export default App;
@@ -83,41 +90,97 @@ export default App;
 | `status` | `"online" or "offline" or "maintenance"` | Controls availability and visual indicators. |
 | `theme` | `"light" or "dark"` | Switches between predefined themes. |
 | `position` | `"bottom-left" or "bottom-right"` | Determines where the widget appears on screen. |
-| `className` | `string` | Allows additional custom class styling. |
 
 ---
 
 ## LLM Integration
 
-The widget does not enforce any particular model provider. Instead, it uses an injected `llmClient` function. This keeps the library frontend-only and compatible with any deployment environment.
+The widget does not enforce any specific AI provider. Instead, it relies on an injected `llmClient` function, allowing you to define how messages are sent and how responses are retrieved. This design keeps the library frontend-only, lightweight, and compatible with a wide range of deployment environments.
 
-A typical `llmClient` may call:
+A typical `llmClient` implementation may integrate with:
 
-- A custom backend (recommended)
-- OpenAI’s Chat Completions endpoint
+- A custom backend service (recommended for production)
+- OpenAI's Chat Completions API
+- Third-party AI orchestration platforms
 - Local inference endpoints
-- Third-party AI gateways
 
-Example using an Express backend:
+### Using the Express backend (recommended for testing)
 
-```ts
-export async function llmClient({ messages }) {
-  const res = await fetch("https://your-backend/chat", {
-    method: "POST",
-    body: JSON.stringify({ messages }),
-    headers: { "Content-Type": "application/json" }
-  });
+For development and testing, you can use the included backend example hosted on Render.
 
-  const data = await res.json();
-  return data.reply;
+This backend was intentionally developed to be simple, and to have a secure integration with OpenAI's API, without exposing the API Key on the Front-end
+
+Backend URL:  
+https://eloquent-chit-chat-express.onrender.com
+
+Endpoint path:  
+`/chat`
+
+Payload format:
+```
+{
+  "messages": [
+    {
+      "role": "",
+      "content": ""
+    }
+  ]
 }
 ```
 
+It is recommended to configure the backend URL using an environment variable such as:
+
+```
+VITE_CHAT_API_URL=https://eloquent-chit-chat-express.onrender.com
+```
+
+This avoids hard‑coding endpoints and allows your frontend to switch easily between staging, production, and local development.
+
+### Example client implementation
+
+Below is a complete example of an `llmClient` using the Express backend:
+
+```
+import type { ChatMessage } from '@crdzcode/eloquent-chit-chat';
+
+const API_BASE_URL =
+  import.meta.env.VITE_CHAT_API_URL ??
+  'https://eloquent-chit-chat-express.onrender.com';
+
+export const llmClient = async ({
+  messages,
+}: {
+  messages: ChatMessage[];
+}): Promise<string> => {
+  const payload = {
+    messages: messages.map((m) => ({
+      role: m.role,
+      content: m.content,
+    })),
+  };
+
+  const res = await fetch(`${API_BASE_URL}/chat`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!res.ok) {
+    console.error('LLM backend error', res.status, await res.text());
+    throw new Error('Failed to retrieve response from backend');
+  }
+
+  const data: { reply: string } = await res.json();
+  return data.reply;
+};
+```
 ---
 
 ## Persistence
 
-Eloquent Chit Chat stores the last 10 messages in `localStorage`. This includes both user and assistant messages. On page reload, the chat restores from persistent history unless overridden by the `initialMessages` prop.
+Eloquent Chit Chat stores the last 10 messages in `localStorage`. This includes both user and assistant messages. On page reload, the chat restores from persistent history unless there isn't any history.
 
 ---
 
@@ -165,6 +228,12 @@ npm run build
 ```
 
 Pack the distribution for testing:
+
+```bash
+npm pack
+```
+
+Clean, build and pack the distribution for testing:
 
 ```bash
 npm run release
