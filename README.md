@@ -258,30 +258,54 @@ The widget uses a mount-aware animation strategy to allow smooth transitions bot
 
 ## Development
 
-To contribute locally:
+### To contribute locally:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Build the distributable package:
+### Build the distributable package:
 
 ```bash
 npm run build
 ```
 
-Pack the distribution for testing:
+### Pack the distribution for testing:
 
 ```bash
 npm pack
 ```
 
-Clean, build and pack the distribution for testing:
+### Clean, build and pack the distribution for testing:
 
 ```bash
 npm run release
 ```
+
+### Create a new version
+```bash
+npm version patch
+```
+
+Or
+
+```bash
+npm version minor
+```
+
+Or
+
+```bash
+npm version major
+```
+
+### Publish the build version
+
+```bash
+npm publish
+```
+
 ---
 
 ## Installing the Library Using the .tgz Package
@@ -291,7 +315,9 @@ If you want to test the widget locally before publishing to npm, you can install
 ### Step 1: Build and pack the library
 
 Run:
-`npm run release`
+```bash
+npm run release
+```
 
 This will clean the output directory, build the library using tsup, and generate a file similar to:
 crdzcode-eloquent-chit-chat-1.0.0.tgz
@@ -300,11 +326,15 @@ crdzcode-eloquent-chit-chat-1.0.0.tgz
 
 From your test project, install the file using a relative or absolute path:
 
-`npm install ./path-to-library/crdzcode-eloquent-chit-chat-1.0.0.tgz`
+```bash
+npm install ./path-to-library/crdzcode-eloquent-chit-chat-1.0.0.tgz
+```
 
 Or:
 
-`npm install C:/Users/your-user/path/crdzcode-eloquent-chit-chat-1.0.0.tgz`
+```bash
+npm install C:/Users/your-user/path/crdzcode-eloquent-chit-chat-1.0.0.tgz
+```
 
 ### Step 3: Import and use the widget
 
