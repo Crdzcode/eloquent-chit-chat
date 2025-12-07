@@ -8,11 +8,9 @@ A lightweight, embeddable chat widget designed for modern web applications. Eloq
 ### Core Widget Features
 - Clean and modern UI designed to blend into any website.
 - Expandable and collapsible chat interface with smooth animations.
-- Message grouping, alignment, and styled conversation bubbles.
 - Support for user and assistant roles.
 - Status awareness (online, maintenance, offline).
 - Loading indicator with typing bubbles when awaiting LLM responses.
-- Scroll anchoring to always display the latest message.
 - Persistent message history stored in localStorage, retaining the last 10 messages.
 
 ### Theming and Styling
