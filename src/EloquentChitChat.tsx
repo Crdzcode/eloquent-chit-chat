@@ -13,7 +13,6 @@ export type EloquentChitChatProps = {
   status?: ServiceStatus;
   theme?: 'light' | 'dark';
   position?: 'bottom-right' | 'bottom-left';
-  className?: string;
 }; 
 
 export const EloquentChitChat: React.FC<EloquentChitChatProps> = ({
@@ -23,7 +22,6 @@ export const EloquentChitChat: React.FC<EloquentChitChatProps> = ({
   status,
   theme,
   position = 'bottom-right',
-  className,
 }) => {
   // Local Storage key for persisting chat history
   const STORAGE_KEY = 'ecc-chat-history';
@@ -175,7 +173,7 @@ export const EloquentChitChat: React.FC<EloquentChitChatProps> = ({
 
   return (
     <div
-      className={`ecc-root ecc-root--${position} ${className ?? ''}`}
+      className={`ecc-root ecc-root--${position}`}
       style={themeVars as React.CSSProperties}
       >
       {isOpen && (

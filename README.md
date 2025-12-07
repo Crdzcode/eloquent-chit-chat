@@ -79,11 +79,10 @@ export default App;
 |------|-------|-------------|
 | `title` | `string` | Sets the header title for the chat window. |
 | `initialMessages` | `ChatMessage[]` | Optional starting messages in the chat history. |
-| `messages` | `ChatMessage[]` | External controlled state for messages. |
-| `llmClient` | `(params: { messages: ChatMessage[] }) => Promise<string>` | Handler responsible for returning assistant responses. |
-| `status` | `"online" | "offline" | "maintenance"` | Controls availability and visual indicators. |
-| `theme` | `"light" | "dark"` | Switches between predefined themes. |
-| `position` | `"bottom-left" | "bottom-right"` | Determines where the widget appears on screen. |
+| `llmClient` | `(params: { messages: ChatMessage[] }) => Promise<string>` | Handler responsible for returning assistant responses. The expected response is an string with the AI response message content |
+| `status` | `"online" or "offline" or "maintenance"` | Controls availability and visual indicators. |
+| `theme` | `"light" or "dark"` | Switches between predefined themes. |
+| `position` | `"bottom-left" or "bottom-right"` | Determines where the widget appears on screen. |
 | `className` | `string` | Allows additional custom class styling. |
 
 ---
