@@ -160,6 +160,9 @@ https://eloquent-chit-chat-express.onrender.com
 Endpoint path:  
 `/chat`
 
+Method:
+`POST`
+
 Payload format:
 ```
 {
